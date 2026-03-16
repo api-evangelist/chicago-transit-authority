@@ -1,27 +1,43 @@
 aid: chicago-transit-authority
-name: Chicago Transit Authority
-description: 'Train Tracker APIs '
-type: Index
-position: Consumer
-access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
-created: '2025-05-02'
-modified: '2025-05-02'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/chicago-transit-authority/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+name: Chicago Transit Authority
+tags:
+  - Transportation
+  - Transit
+  - Chicago
+  - Public Transit
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+created: '2025-05-02'
+modified: '2026-03-16'
+position: Consumer
+description: >-
+  The Chicago Transit Authority (CTA) provides Train Tracker and Bus Tracker
+  APIs for developers to access real-time and schedule data for CTA train and
+  bus service.
 apis:
   - aid: chicago-transit-authority:chicago-transit-authority
-    name: Chicago Transit Authority
-    description: 'Train Tracker APIs '
-    humanURL: ' https://www.transitchicago.com/developers/traintracker/'
+    name: Chicago Transit Authority Train Tracker API
     tags:
-      - API
+      - Transportation
+      - Transit
+    humanURL: https://www.transitchicago.com/developers/traintracker/
     properties:
-      - type: Documentation
-        url: ' https://www.transitchicago.com/developers/traintracker/'
+      - url: https://www.transitchicago.com/developers/traintracker/
+        type: Documentation
+    description: >-
+      Train Tracker APIs provide real-time train arrival times and status for
+      all CTA L train lines.
+common:
+  - type: Website
+    url: https://www.transitchicago.com/
+  - type: Portal
+    url: https://www.transitchicago.com/developers/
+  - type: Privacy Policy
+    url: https://www.transitchicago.com/privacy/
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
+specificationVersion: '0.19'
