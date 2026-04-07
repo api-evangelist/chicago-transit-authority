@@ -3,10 +3,10 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/chicago-transit-authority/refs/heads/main/apis.yml
 name: Chicago Transit Authority
 tags:
-  - Transportation
-  - Transit
   - Chicago
   - Public Transit
+  - Transit
+  - Transportation
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
@@ -21,8 +21,8 @@ apis:
   - aid: chicago-transit-authority:chicago-transit-authority
     name: Chicago Transit Authority Train Tracker API
     tags:
-      - Transportation
       - Transit
+      - Transportation
     humanURL: https://www.transitchicago.com/developers/traintracker/
     properties:
       - url: https://www.transitchicago.com/developers/traintracker/
