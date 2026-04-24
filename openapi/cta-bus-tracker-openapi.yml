@@ -1,0 +1,236 @@
+openapi: 3.1.0
+info:
+  title: CTA Bus Tracker API
+  description: >-
+    The Chicago Transit Authority Bus Tracker API provides real-time
+    bus arrival predictions, vehicle locations, route patterns, route
+    lists, and stop directories for the CTA bus network. Access
+    requires an API key issued by the CTA Developer Center.
+  version: 2.0.0
+  contact:
+    name: CTA Developer Center
+    url: https://www.transitchicago.com/developers/
+  license:
+    name: CTA Developer License Agreement
+    url: https://www.transitchicago.com/developers/terms/
+servers:
+  - url: http://www.ctabustracker.com/bustime/api/v2
+    description: CTA Bus Tracker v2 production
+security:
+  - apiKey: []
+paths:
+  /gettime:
+    get:
+      operationId: getTime
+      summary: Get System Time
+      description: Returns the current Bus Tracker system time.
+      tags:
+        - System
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: System time
+  /getroutes:
+    get:
+      operationId: getRoutes
+      summary: Get Routes
+      description: Returns the set of CTA bus routes available in Bus Tracker.
+      tags:
+        - Routes
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Route list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoutesResponse'
+  /getdirections:
+    get:
+      operationId: getDirections
+      summary: Get Directions
+      description: Returns the set of valid directions for a given route.
+      tags:
+        - Routes
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - name: rt
+          in: query
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Directions for route
+  /getstops:
+    get:
+      operationId: getStops
+      summary: Get Stops
+      description: Returns the set of stops served by a route in a given direction.
+      tags:
+        - Stops
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - name: rt
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dir
+          in: query
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Stop list
+  /getpatterns:
+    get:
+      operationId: getPatterns
+      summary: Get Patterns
+      description: Returns route pattern geometry.
+      tags:
+        - Routes
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - name: rt
+          in: query
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Pattern list
+  /getvehicles:
+    get:
+      operationId: getVehicles
+      summary: Get Vehicles
+      description: Returns vehicle positions for routes or specific vehicles.
+      tags:
+        - Vehicles
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - name: vid
+          in: query
+          description: Comma-separated vehicle IDs.
+          schema:
+            type: string
+        - name: rt
+          in: query
+          description: Comma-separated route designators.
+          schema:
+            type: string
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Vehicle positions
+  /getpredictions:
+    get:
+      operationId: getPredictions
+      summary: Get Predictions
+      description: Returns arrival or departure predictions for stops or vehicles.
+      tags:
+        - Predictions
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - name: stpid
+          in: query
+          description: Comma-separated stop IDs.
+          schema:
+            type: string
+        - name: rt
+          in: query
+          description: Comma-separated route designators.
+          schema:
+            type: string
+        - name: vid
+          in: query
+          description: Comma-separated vehicle IDs.
+          schema:
+            type: string
+        - name: top
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Prediction list
+  /getservicebulletins:
+    get:
+      operationId: getServiceBulletins
+      summary: Get Service Bulletins
+      description: Returns active service bulletins for routes or stops.
+      tags:
+        - Bulletins
+      parameters:
+        - $ref: '#/components/parameters/key'
+        - name: rt
+          in: query
+          schema:
+            type: string
+        - name: stpid
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Bulletin list
+tags:
+  - name: System
+  - name: Routes
+  - name: Stops
+  - name: Vehicles
+  - name: Predictions
+  - name: Bulletins
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key
+  parameters:
+    key:
+      name: key
+      in: query
+      required: true
+      description: CTA Bus Tracker API key.
+      schema:
+        type: string
+    format:
+      name: format
+      in: query
+      description: Response format (xml or json). Defaults to XML.
+      schema:
+        type: string
+        enum: [xml, json]
+  schemas:
+    Route:
+      type: object
+      properties:
+        rt:
+          type: string
+        rtnm:
+          type: string
+        rtclr:
+          type: string
+        rtdd:
+          type: string
+    RoutesResponse:
+      type: object
+      properties:
+        bustime-response:
+          type: object
+          properties:
+            routes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Route'

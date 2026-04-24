@@ -1,0 +1,247 @@
+openapi: 3.1.0
+info:
+  title: CTA Train Tracker API
+  description: >-
+    The Chicago Transit Authority Train Tracker API provides real-time
+    train arrival predictions and run/location information for the CTA
+    L train system. Access requires an API key issued by the CTA
+    Developer Center.
+  version: 1.0.0
+  contact:
+    name: CTA Developer Center
+    url: https://www.transitchicago.com/developers/
+  license:
+    name: CTA Developer License Agreement
+    url: https://www.transitchicago.com/developers/terms/
+servers:
+  - url: http://lapi.transitchicago.com/api/1.0
+    description: CTA Train Tracker production
+security:
+  - apiKey: []
+paths:
+  /ttarrivals.aspx:
+    get:
+      operationId: getArrivals
+      summary: Arrivals
+      description: >-
+        Returns train arrival predictions for a station (mapid) or
+        platform (stpid).
+      tags:
+        - Arrivals
+      parameters:
+        - name: key
+          in: query
+          required: true
+          description: CTA Train Tracker API key.
+          schema:
+            type: string
+        - name: mapid
+          in: query
+          description: Numeric station identifier.
+          schema:
+            type: string
+        - name: stpid
+          in: query
+          description: Numeric platform stop identifier.
+          schema:
+            type: string
+        - name: max
+          in: query
+          description: Maximum results to return.
+          schema:
+            type: integer
+        - name: rt
+          in: query
+          description: Train route code (e.g., Red, Blue, G, Brn, P, Pink, Org, Y).
+          schema:
+            type: string
+        - name: outputType
+          in: query
+          description: Response format. Defaults to XML.
+          schema:
+            type: string
+            enum: [xml, JSON]
+      responses:
+        '200':
+          description: Arrival predictions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrivalsResponse'
+  /ttfollow.aspx:
+    get:
+      operationId: followTrain
+      summary: Follow This Train
+      description: Returns predictions for an individual train run.
+      tags:
+        - Follow
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: runnumber
+          in: query
+          required: true
+          description: Train run number to follow.
+          schema:
+            type: string
+        - name: outputType
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Per-run prediction list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrivalsResponse'
+  /ttpositions.aspx:
+    get:
+      operationId: getPositions
+      summary: Locations
+      description: Returns the current latitude/longitude for in-service trains.
+      tags:
+        - Locations
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: rt
+          in: query
+          description: Comma-separated list of route codes.
+          required: true
+          schema:
+            type: string
+        - name: outputType
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Positions of in-service trains
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PositionsResponse'
+tags:
+  - name: Arrivals
+    description: Train arrival prediction operations
+  - name: Follow
+    description: Follow an individual train run
+  - name: Locations
+    description: Train geolocation operations
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key
+  schemas:
+    Arrival:
+      type: object
+      properties:
+        staId:
+          type: string
+        stpId:
+          type: string
+        staNm:
+          type: string
+        stpDe:
+          type: string
+        rn:
+          type: string
+        rt:
+          type: string
+        destSt:
+          type: string
+        destNm:
+          type: string
+        prdt:
+          type: string
+        arrT:
+          type: string
+        isApp:
+          type: string
+        isSch:
+          type: string
+        isDly:
+          type: string
+        lat:
+          type: string
+        lon:
+          type: string
+        heading:
+          type: string
+    ArrivalsResponse:
+      type: object
+      properties:
+        ctatt:
+          type: object
+          properties:
+            tmst:
+              type: string
+            errCd:
+              type: string
+            errNm:
+              type: string
+            eta:
+              type: array
+              items:
+                $ref: '#/components/schemas/Arrival'
+    Position:
+      type: object
+      properties:
+        rn:
+          type: string
+        destSt:
+          type: string
+        destNm:
+          type: string
+        trDr:
+          type: string
+        nextStaId:
+          type: string
+        nextStaNm:
+          type: string
+        prdt:
+          type: string
+        arrT:
+          type: string
+        isApp:
+          type: string
+        isDly:
+          type: string
+        lat:
+          type: string
+        lon:
+          type: string
+        heading:
+          type: string
+    PositionsResponse:
+      type: object
+      properties:
+        ctatt:
+          type: object
+          properties:
+            tmst:
+              type: string
+            errCd:
+              type: string
+            errNm:
+              type: string
+            route:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@name':
+                    type: string
+                  train:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Position'

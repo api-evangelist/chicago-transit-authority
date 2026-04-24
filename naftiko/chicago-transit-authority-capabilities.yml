@@ -1,0 +1,131 @@
+name: chicago-transit-authority-capabilities
+description: >-
+  Naftiko sandbox capabilities for the Chicago Transit Authority developer
+  APIs covering Train Tracker, Bus Tracker, Customer Alerts, and the GTFS
+  schedule feed.
+provider: chicago-transit-authority
+version: '1.0'
+capabilities:
+  - id: cta.trainTracker.arrivals
+    name: Get train arrivals
+    description: Get real-time arrival predictions for a CTA L train station or platform.
+    operationId: getArrivals
+    inputs:
+      - name: stationId
+        type: string
+        required: false
+      - name: stopId
+        type: string
+        required: false
+      - name: route
+        type: string
+        required: false
+    outputs:
+      - name: arrivals
+        type: array
+    tags: [train, arrivals, real-time]
+  - id: cta.trainTracker.followTrain
+    name: Follow a train run
+    description: Get predictions for a single in-service train run.
+    operationId: followTrain
+    inputs:
+      - name: runNumber
+        type: string
+        required: true
+    outputs:
+      - name: arrivals
+        type: array
+    tags: [train, follow, real-time]
+  - id: cta.trainTracker.positions
+    name: Get train positions
+    description: Get the current latitude/longitude of in-service trains on a route.
+    operationId: getPositions
+    inputs:
+      - name: route
+        type: string
+        required: true
+    outputs:
+      - name: positions
+        type: array
+    tags: [train, positions, real-time]
+  - id: cta.busTracker.routes
+    name: List bus routes
+    description: List the set of CTA bus routes available in Bus Tracker.
+    operationId: getRoutes
+    inputs: []
+    outputs:
+      - name: routes
+        type: array
+    tags: [bus, routes]
+  - id: cta.busTracker.stops
+    name: List bus stops
+    description: List the stops served by a route in a given direction.
+    operationId: getStops
+    inputs:
+      - name: route
+        type: string
+        required: true
+      - name: direction
+        type: string
+        required: true
+    outputs:
+      - name: stops
+        type: array
+    tags: [bus, stops]
+  - id: cta.busTracker.predictions
+    name: Get bus predictions
+    description: Get arrival or departure predictions for stops or vehicles.
+    operationId: getPredictions
+    inputs:
+      - name: stopId
+        type: string
+        required: false
+      - name: route
+        type: string
+        required: false
+      - name: vehicleId
+        type: string
+        required: false
+    outputs:
+      - name: predictions
+        type: array
+    tags: [bus, predictions, real-time]
+  - id: cta.busTracker.vehicles
+    name: Get bus vehicles
+    description: Get vehicle positions for routes or specific vehicles.
+    operationId: getVehicles
+    inputs:
+      - name: route
+        type: string
+        required: false
+      - name: vehicleId
+        type: string
+        required: false
+    outputs:
+      - name: vehicles
+        type: array
+    tags: [bus, vehicles, real-time]
+  - id: cta.alerts.list
+    name: List customer alerts
+    description: Get current CTA service status and customer alerts.
+    operationId: getAlerts
+    inputs:
+      - name: route
+        type: string
+        required: false
+      - name: stationId
+        type: string
+        required: false
+    outputs:
+      - name: alerts
+        type: array
+    tags: [alerts, service-status]
+  - id: cta.gtfs.download
+    name: Download GTFS feed
+    description: Download the static GTFS schedule feed for the CTA system.
+    operationId: downloadGtfs
+    inputs: []
+    outputs:
+      - name: feed
+        type: file
+    tags: [gtfs, schedule, static]

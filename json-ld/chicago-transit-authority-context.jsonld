@@ -1,0 +1,116 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cta": "https://www.transitchicago.com/schemas/",
+    "schema": "https://schema.org/",
+    "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "TrainArrival": {
+      "@id": "cta:TrainArrival",
+      "@context": {
+        "stationId": "cta:staId",
+        "stationName": "schema:name",
+        "stopId": "cta:stpId",
+        "runNumber": "cta:runNumber",
+        "route": "cta:route",
+        "destination": "cta:destination",
+        "predictionTime": {
+          "@id": "cta:predictionTime",
+          "@type": "xsd:dateTime"
+        },
+        "arrivalTime": {
+          "@id": "cta:arrivalTime",
+          "@type": "xsd:dateTime"
+        },
+        "isApproaching": {
+          "@id": "cta:isApproaching",
+          "@type": "xsd:boolean"
+        },
+        "isScheduled": {
+          "@id": "cta:isScheduled",
+          "@type": "xsd:boolean"
+        },
+        "isDelayed": {
+          "@id": "cta:isDelayed",
+          "@type": "xsd:boolean"
+        },
+        "latitude": {
+          "@id": "geo:lat",
+          "@type": "xsd:decimal"
+        },
+        "longitude": {
+          "@id": "geo:long",
+          "@type": "xsd:decimal"
+        },
+        "heading": "cta:heading"
+      }
+    },
+
+    "BusPrediction": {
+      "@id": "cta:BusPrediction",
+      "@context": {
+        "stopId": "cta:stpid",
+        "stopName": "schema:name",
+        "vehicleId": "cta:vid",
+        "route": "cta:rt",
+        "destination": "cta:des",
+        "predictionTime": {
+          "@id": "cta:predictionTime",
+          "@type": "xsd:dateTime"
+        },
+        "predictionMinutes": {
+          "@id": "cta:prdctdn",
+          "@type": "xsd:integer"
+        },
+        "delayed": {
+          "@id": "cta:dly",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "Vehicle": {
+      "@id": "cta:Vehicle",
+      "@context": {
+        "vehicleId": "cta:vid",
+        "route": "cta:rt",
+        "destination": "cta:des",
+        "latitude": {
+          "@id": "geo:lat",
+          "@type": "xsd:decimal"
+        },
+        "longitude": {
+          "@id": "geo:long",
+          "@type": "xsd:decimal"
+        },
+        "heading": "cta:hdg",
+        "speed": "cta:spd",
+        "timestamp": {
+          "@id": "cta:tmstmp",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Alert": {
+      "@id": "cta:Alert",
+      "@context": {
+        "alertId": "cta:alertId",
+        "headline": "schema:headline",
+        "description": "schema:description",
+        "severity": "cta:severityScore",
+        "impact": "cta:impact",
+        "startDate": {
+          "@id": "schema:startDate",
+          "@type": "xsd:dateTime"
+        },
+        "endDate": {
+          "@id": "schema:endDate",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}
