@@ -1,6 +1,6 @@
 aid: chicago-transit-authority
 name: Chicago Transit Authority
-x-type: government
+kind: government
 description: >-
   The Chicago Transit Authority (CTA) is the public transit operator for
   the City of Chicago and 35 surrounding suburbs, operating the second
