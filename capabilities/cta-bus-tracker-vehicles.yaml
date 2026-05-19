@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CTA Bus Tracker API — Vehicles
+  description: 'CTA Bus Tracker API — Vehicles. 1 operations. Lead operation: Get Vehicles. Self-contained Naftiko capability
+    covering one Chicago Transit Authority business surface.'
+  tags:
+  - Chicago Transit Authority
+  - Vehicles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CHICAGO_TRANSIT_AUTHORITY_API_KEY: CHICAGO_TRANSIT_AUTHORITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cta-bus-tracker-vehicles
+    baseUri: http://www.ctabustracker.com/bustime/api/v2
+    description: CTA Bus Tracker API — Vehicles business capability. Self-contained, no shared references.
+    resources:
+    - name: getvehicles
+      path: /getvehicles
+      operations:
+      - name: getvehicles
+        method: GET
+        description: Get Vehicles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: vid
+          in: query
+          type: string
+          description: Comma-separated vehicle IDs.
+        - name: rt
+          in: query
+          type: string
+          description: Comma-separated route designators.
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.CHICAGO_TRANSIT_AUTHORITY_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: cta-bus-tracker-vehicles-rest
+    port: 8080
+    description: REST adapter for CTA Bus Tracker API — Vehicles. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/getvehicles
+      name: getvehicles
+      description: REST surface for getvehicles.
+      operations:
+      - method: GET
+        name: getvehicles
+        description: Get Vehicles
+        call: cta-bus-tracker-vehicles.getvehicles
+        with:
+          vid: rest.vid
+          rt: rest.rt
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cta-bus-tracker-vehicles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CTA Bus Tracker API — Vehicles. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-vehicles
+      description: Get Vehicles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cta-bus-tracker-vehicles.getvehicles
+      with:
+        vid: tools.vid
+        rt: tools.rt
+      outputParameters:
+      - type: object
+        mapping: $.

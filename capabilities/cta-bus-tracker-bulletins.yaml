@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CTA Bus Tracker API — Bulletins
+  description: 'CTA Bus Tracker API — Bulletins. 1 operations. Lead operation: Get Service Bulletins. Self-contained Naftiko
+    capability covering one Chicago Transit Authority business surface.'
+  tags:
+  - Chicago Transit Authority
+  - Bulletins
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CHICAGO_TRANSIT_AUTHORITY_API_KEY: CHICAGO_TRANSIT_AUTHORITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cta-bus-tracker-bulletins
+    baseUri: http://www.ctabustracker.com/bustime/api/v2
+    description: CTA Bus Tracker API — Bulletins business capability. Self-contained, no shared references.
+    resources:
+    - name: getservicebulletins
+      path: /getservicebulletins
+      operations:
+      - name: getservicebulletins
+        method: GET
+        description: Get Service Bulletins
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: rt
+          in: query
+          type: string
+        - name: stpid
+          in: query
+          type: string
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.CHICAGO_TRANSIT_AUTHORITY_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: cta-bus-tracker-bulletins-rest
+    port: 8080
+    description: REST adapter for CTA Bus Tracker API — Bulletins. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/getservicebulletins
+      name: getservicebulletins
+      description: REST surface for getservicebulletins.
+      operations:
+      - method: GET
+        name: getservicebulletins
+        description: Get Service Bulletins
+        call: cta-bus-tracker-bulletins.getservicebulletins
+        with:
+          rt: rest.rt
+          stpid: rest.stpid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cta-bus-tracker-bulletins-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CTA Bus Tracker API — Bulletins. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-service-bulletins
+      description: Get Service Bulletins
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cta-bus-tracker-bulletins.getservicebulletins
+      with:
+        rt: tools.rt
+        stpid: tools.stpid
+      outputParameters:
+      - type: object
+        mapping: $.

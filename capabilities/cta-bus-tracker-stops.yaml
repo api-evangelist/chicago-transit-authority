@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CTA Bus Tracker API — Stops
+  description: 'CTA Bus Tracker API — Stops. 1 operations. Lead operation: Get Stops. Self-contained Naftiko capability covering
+    one Chicago Transit Authority business surface.'
+  tags:
+  - Chicago Transit Authority
+  - Stops
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CHICAGO_TRANSIT_AUTHORITY_API_KEY: CHICAGO_TRANSIT_AUTHORITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cta-bus-tracker-stops
+    baseUri: http://www.ctabustracker.com/bustime/api/v2
+    description: CTA Bus Tracker API — Stops business capability. Self-contained, no shared references.
+    resources:
+    - name: getstops
+      path: /getstops
+      operations:
+      - name: getstops
+        method: GET
+        description: Get Stops
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: rt
+          in: query
+          type: string
+          required: true
+        - name: dir
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.CHICAGO_TRANSIT_AUTHORITY_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: cta-bus-tracker-stops-rest
+    port: 8080
+    description: REST adapter for CTA Bus Tracker API — Stops. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/getstops
+      name: getstops
+      description: REST surface for getstops.
+      operations:
+      - method: GET
+        name: getstops
+        description: Get Stops
+        call: cta-bus-tracker-stops.getstops
+        with:
+          rt: rest.rt
+          dir: rest.dir
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cta-bus-tracker-stops-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CTA Bus Tracker API — Stops. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-stops
+      description: Get Stops
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cta-bus-tracker-stops.getstops
+      with:
+        rt: tools.rt
+        dir: tools.dir
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,93 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CTA Train Tracker API — Follow
+  description: 'CTA Train Tracker API — Follow. 1 operations. Lead operation: Follow This Train. Self-contained Naftiko capability
+    covering one Chicago Transit Authority business surface.'
+  tags:
+  - Chicago Transit Authority
+  - Follow
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CHICAGO_TRANSIT_AUTHORITY_API_KEY: CHICAGO_TRANSIT_AUTHORITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cta-train-tracker-follow
+    baseUri: http://lapi.transitchicago.com/api/1.0
+    description: CTA Train Tracker API — Follow business capability. Self-contained, no shared references.
+    resources:
+    - name: ttfollow.aspx
+      path: /ttfollow.aspx
+      operations:
+      - name: followtrain
+        method: GET
+        description: Follow This Train
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: query
+          type: string
+          required: true
+        - name: runnumber
+          in: query
+          type: string
+          description: Train run number to follow.
+          required: true
+        - name: outputType
+          in: query
+          type: string
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.CHICAGO_TRANSIT_AUTHORITY_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: cta-train-tracker-follow-rest
+    port: 8080
+    description: REST adapter for CTA Train Tracker API — Follow. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/ttfollow-aspx
+      name: ttfollow-aspx
+      description: REST surface for ttfollow.aspx.
+      operations:
+      - method: GET
+        name: followtrain
+        description: Follow This Train
+        call: cta-train-tracker-follow.followtrain
+        with:
+          key: rest.key
+          runnumber: rest.runnumber
+          outputType: rest.outputType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cta-train-tracker-follow-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CTA Train Tracker API — Follow. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: follow-this-train
+      description: Follow This Train
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cta-train-tracker-follow.followtrain
+      with:
+        key: tools.key
+        runnumber: tools.runnumber
+        outputType: tools.outputType
+      outputParameters:
+      - type: object
+        mapping: $.

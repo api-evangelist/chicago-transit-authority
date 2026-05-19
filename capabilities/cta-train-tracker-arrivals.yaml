@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CTA Train Tracker API — Arrivals
+  description: 'CTA Train Tracker API — Arrivals. 1 operations. Lead operation: Arrivals. Self-contained Naftiko capability
+    covering one Chicago Transit Authority business surface.'
+  tags:
+  - Chicago Transit Authority
+  - Arrivals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CHICAGO_TRANSIT_AUTHORITY_API_KEY: CHICAGO_TRANSIT_AUTHORITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cta-train-tracker-arrivals
+    baseUri: http://lapi.transitchicago.com/api/1.0
+    description: CTA Train Tracker API — Arrivals business capability. Self-contained, no shared references.
+    resources:
+    - name: ttarrivals.aspx
+      path: /ttarrivals.aspx
+      operations:
+      - name: getarrivals
+        method: GET
+        description: Arrivals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: query
+          type: string
+          description: CTA Train Tracker API key.
+          required: true
+        - name: mapid
+          in: query
+          type: string
+          description: Numeric station identifier.
+        - name: stpid
+          in: query
+          type: string
+          description: Numeric platform stop identifier.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum results to return.
+        - name: rt
+          in: query
+          type: string
+          description: Train route code (e.g., Red, Blue, G, Brn, P, Pink, Org, Y).
+        - name: outputType
+          in: query
+          type: string
+          description: Response format. Defaults to XML.
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.CHICAGO_TRANSIT_AUTHORITY_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: cta-train-tracker-arrivals-rest
+    port: 8080
+    description: REST adapter for CTA Train Tracker API — Arrivals. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/ttarrivals-aspx
+      name: ttarrivals-aspx
+      description: REST surface for ttarrivals.aspx.
+      operations:
+      - method: GET
+        name: getarrivals
+        description: Arrivals
+        call: cta-train-tracker-arrivals.getarrivals
+        with:
+          key: rest.key
+          mapid: rest.mapid
+          stpid: rest.stpid
+          max: rest.max
+          rt: rest.rt
+          outputType: rest.outputType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cta-train-tracker-arrivals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CTA Train Tracker API — Arrivals. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: arrivals
+      description: Arrivals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cta-train-tracker-arrivals.getarrivals
+      with:
+        key: tools.key
+        mapid: tools.mapid
+        stpid: tools.stpid
+        max: tools.max
+        rt: tools.rt
+        outputType: tools.outputType
+      outputParameters:
+      - type: object
+        mapping: $.
