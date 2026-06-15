@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CTA Train Tracker API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Arrivals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Arrivals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "CTA Train Tracker API key."
+              },
+              {
+                "name": "mapid",
+                "value": "",
+                "type": "query",
+                "description": "Numeric station identifier."
+              },
+              {
+                "name": "stpid",
+                "value": "",
+                "type": "query",
+                "description": "Numeric platform stop identifier."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results to return."
+              },
+              {
+                "name": "rt",
+                "value": "",
+                "type": "query",
+                "description": "Train route code (e.g., Red, Blue, G, Brn, P, Pink, Org, Y)."
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Defaults to XML."
+              }
+            ]
+          },
+          "docs": "Returns train arrival predictions for a station (mapid) or platform (stpid)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Follow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Follow This Train",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://lapi.transitchicago.com/api/1.0/ttfollow.aspx",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "runnumber",
+                "value": "",
+                "type": "query",
+                "description": "Train run number to follow."
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns predictions for an individual train run."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rt",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of route codes."
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the current latitude/longitude for in-service trains."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,417 @@
+{
+  "item": [
+    {
+      "id": "5548d504-3a05-4697-a3e5-29e926204ebe",
+      "name": "Arrivals",
+      "description": {
+        "content": "Train arrival prediction operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d6f759c-e138-4043-b573-3dd8e62950d4",
+          "name": "Arrivals",
+          "request": {
+            "name": "Arrivals",
+            "description": {
+              "content": "Returns train arrival predictions for a station (mapid) or platform (stpid).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ttarrivals.aspx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) CTA Train Tracker API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "mapid",
+                  "value": "<string>",
+                  "description": "Numeric station identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "stpid",
+                  "value": "<string>",
+                  "description": "Numeric platform stop identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>",
+                  "description": "Train route code (e.g., Red, Blue, G, Brn, P, Pink, Org, Y)."
+                },
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "<string>",
+                  "description": "Response format. Defaults to XML."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8549c6d5-0e0b-4593-95c3-bc407968ff61",
+              "name": "Arrival predictions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ttarrivals.aspx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mapid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stpid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outputType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ctatt\": {\n    \"tmst\": \"string\",\n    \"errCd\": \"string\",\n    \"errNm\": \"string\",\n    \"eta\": [\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      },\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b7cabff8-eba5-4507-adc5-decab0ccc8f0",
+      "name": "Follow",
+      "description": {
+        "content": "Follow an individual train run",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea50a058-a084-4639-bc67-0e7e888cbbb1",
+          "name": "Follow This Train",
+          "request": {
+            "name": "Follow This Train",
+            "description": {
+              "content": "Returns predictions for an individual train run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ttfollow.aspx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "runnumber",
+                  "value": "<string>",
+                  "description": "(Required) Train run number to follow."
+                },
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31bd1fc6-8e8e-4959-8157-ef7a16ee1115",
+              "name": "Per-run prediction list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ttfollow.aspx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "runnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outputType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ctatt\": {\n    \"tmst\": \"string\",\n    \"errCd\": \"string\",\n    \"errNm\": \"string\",\n    \"eta\": [\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      },\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "782cca93-22c1-4e78-ba64-59e6a6c57903",
+      "name": "Locations",
+      "description": {
+        "content": "Train geolocation operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e86761ab-3aae-4a31-91cc-8d96ddbd2957",
+          "name": "Locations",
+          "request": {
+            "name": "Locations",
+            "description": {
+              "content": "Returns the current latitude/longitude for in-service trains.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ttpositions.aspx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of route codes."
+                },
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6dceab7-5d7e-418f-b796-891b71623b23",
+              "name": "Positions of in-service trains",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ttpositions.aspx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outputType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ctatt\": {\n    \"tmst\": \"string\",\n    \"errCd\": \"string\",\n    \"errNm\": \"string\",\n    \"route\": [\n      {\n        \"@name\": \"string\",\n        \"train\": [\n          {\n            \"rn\": \"string\",\n            \"destSt\": \"string\",\n            \"destNm\": \"string\",\n            \"trDr\": \"string\",\n            \"nextStaId\": \"string\",\n            \"nextStaNm\": \"string\",\n            \"prdt\": \"string\",\n            \"arrT\": \"string\",\n            \"isApp\": \"string\",\n            \"isDly\": \"string\",\n            \"lat\": \"string\",\n            \"lon\": \"string\",\n            \"heading\": \"string\"\n          },\n          {\n            \"rn\": \"string\",\n            \"destSt\": \"string\",\n            \"destNm\": \"string\",\n            \"trDr\": \"string\",\n            \"nextStaId\": \"string\",\n            \"nextStaNm\": \"string\",\n            \"prdt\": \"string\",\n            \"arrT\": \"string\",\n            \"isApp\": \"string\",\n            \"isDly\": \"string\",\n            \"lat\": \"string\",\n            \"lon\": \"string\",\n            \"heading\": \"string\"\n          }\n        ]\n      },\n      {\n        \"@name\": \"string\",\n        \"train\": [\n          {\n            \"rn\": \"string\",\n            \"destSt\": \"string\",\n            \"destNm\": \"string\",\n            \"trDr\": \"string\",\n            \"nextStaId\": \"string\",\n            \"nextStaNm\": \"string\",\n            \"prdt\": \"string\",\n            \"arrT\": \"string\",\n            \"isApp\": \"string\",\n            \"isDly\": \"string\",\n            \"lat\": \"string\",\n            \"lon\": \"string\",\n            \"heading\": \"string\"\n          },\n          {\n            \"rn\": \"string\",\n            \"destSt\": \"string\",\n            \"destNm\": \"string\",\n            \"trDr\": \"string\",\n            \"nextStaId\": \"string\",\n            \"nextStaNm\": \"string\",\n            \"prdt\": \"string\",\n            \"arrT\": \"string\",\n            \"isApp\": \"string\",\n            \"isDly\": \"string\",\n            \"lat\": \"string\",\n            \"lon\": \"string\",\n            \"heading\": \"string\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://lapi.transitchicago.com/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "adab08b8-4599-4a23-8091-f31f23d49f1c",
+    "name": "CTA Train Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Chicago Transit Authority Train Tracker API provides real-time train arrival predictions and run/location information for the CTA L train system. Access requires an API key issued by the CTA Developer Center.\n\nContact Support:\n Name: CTA Developer Center",
+      "type": "text/plain"
+    }
+  }
+}
