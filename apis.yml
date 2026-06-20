@@ -11,7 +11,7 @@ description: >-
 type: Index
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/chicago-transit-authority/refs/heads/main/apis.yml
 tags:
   - Bus
@@ -39,7 +39,7 @@ apis:
       train lines. Endpoints include arrival predictions by station or stop, follow-this-train run tracking, and a
       locations service exposing the current latitude/longitude of in-service trains. Authentication requires a
       developer API key issued through the CTA Developer Center.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.transitchicago.com/developers/traintracker/
     baseURL: http://lapi.transitchicago.com/api/1.0
     tags:
@@ -66,7 +66,7 @@ apis:
       The Bus Tracker API series provides real-time bus arrival predictions, vehicle locations, route patterns, route
       lists, and stop directories for the CTA bus network. Endpoints support route, stop, and vehicle-based queries
       returning JSON or XML. Authentication requires a developer API key issued through the CTA Developer Center.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.transitchicago.com/developers/bustracker/
     baseURL: http://www.ctabustracker.com/bustime/api/v2
     tags:
@@ -87,7 +87,7 @@ apis:
       The Customer Alerts API delivers real-time service status, planned outages, and disruption information for CTA bus
       and rail services. It provides both a route-level status feed and per-route or per-station detail. Authentication
       is not required for the public Customer Alerts feeds.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.transitchicago.com/developers/alerts/
     baseURL: http://www.transitchicago.com/api/1.0
     tags:
@@ -104,7 +104,7 @@ apis:
       CTA publishes a GTFS (General Transit Feed Specification) schedule feed covering the physical layout, stop
       locations, and static schedules for the entire CTA bus and L train system. The feed is a downloadable ZIP archive
       that conforms to the GTFS reference and is updated when CTA service changes.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.transitchicago.com/developers/gtfs/
     baseURL: https://www.transitchicago.com/downloads/sch_data/google_transit.zip
     tags:
