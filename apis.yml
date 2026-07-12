@@ -124,6 +124,10 @@ apis:
       - type: ChicagoDataPortal
         url: https://data.cityofchicago.org/Transportation/CTA-System-Information-Developer-Tool-GTFS-Data/sp6w-yusg
 common:
+  - type: DomainSecurity
+    url: security/chicago-transit-authority-domain-security.yml
+  - type: Authentication
+    url: authentication/chicago-transit-authority-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/chicago-transit-authority
   - type: Website
