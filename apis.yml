@@ -124,6 +124,8 @@ apis:
       - type: ChicagoDataPortal
         url: https://data.cityofchicago.org/Transportation/CTA-System-Information-Developer-Tool-GTFS-Data/sp6w-yusg
 common:
+  - type: AgenticAccess
+    url: agentic-access/chicago-transit-authority-agentic-access.yml
   - type: DomainSecurity
     url: security/chicago-transit-authority-domain-security.yml
   - type: Authentication
