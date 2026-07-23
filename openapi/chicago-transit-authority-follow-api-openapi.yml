@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: CTA Bus Tracker Arrivals Follow API
+  description: The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.
+  version: 2.0.0
+  contact:
+    name: CTA Developer Center
+    url: https://www.transitchicago.com/developers/
+  license:
+    name: CTA Developer License Agreement
+    url: https://www.transitchicago.com/developers/terms/
+servers:
+- url: http://www.ctabustracker.com/bustime/api/v2
+  description: CTA Bus Tracker v2 production
+security:
+- apiKey: []
+tags:
+- name: Follow
+  description: Follow an individual train run
+paths:
+  /ttfollow.aspx:
+    get:
+      operationId: followTrain
+      summary: Follow This Train
+      description: Returns predictions for an individual train run.
+      tags:
+      - Follow
+      parameters:
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: runnumber
+        in: query
+        required: true
+        description: Train run number to follow.
+        schema:
+          type: string
+      - name: outputType
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Per-run prediction list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrivalsResponse'
+components:
+  schemas:
+    Arrival:
+      type: object
+      properties:
+        staId:
+          type: string
+        stpId:
+          type: string
+        staNm:
+          type: string
+        stpDe:
+          type: string
+        rn:
+          type: string
+        rt:
+          type: string
+        destSt:
+          type: string
+        destNm:
+          type: string
+        prdt:
+          type: string
+        arrT:
+          type: string
+        isApp:
+          type: string
+        isSch:
+          type: string
+        isDly:
+          type: string
+        lat:
+          type: string
+        lon:
+          type: string
+        heading:
+          type: string
+    ArrivalsResponse:
+      type: object
+      properties:
+        ctatt:
+          type: object
+          properties:
+            tmst:
+              type: string
+            errCd:
+              type: string
+            errNm:
+              type: string
+            eta:
+              type: array
+              items:
+                $ref: '#/components/schemas/Arrival'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key

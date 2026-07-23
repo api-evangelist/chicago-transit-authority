@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: CTA Bus Tracker Arrivals Predictions API
+  description: The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.
+  version: 2.0.0
+  contact:
+    name: CTA Developer Center
+    url: https://www.transitchicago.com/developers/
+  license:
+    name: CTA Developer License Agreement
+    url: https://www.transitchicago.com/developers/terms/
+servers:
+- url: http://www.ctabustracker.com/bustime/api/v2
+  description: CTA Bus Tracker v2 production
+security:
+- apiKey: []
+tags:
+- name: Predictions
+paths:
+  /getpredictions:
+    get:
+      operationId: getPredictions
+      summary: Get Predictions
+      description: Returns arrival or departure predictions for stops or vehicles.
+      tags:
+      - Predictions
+      parameters:
+      - $ref: '#/components/parameters/key'
+      - name: stpid
+        in: query
+        description: Comma-separated stop IDs.
+        schema:
+          type: string
+      - name: rt
+        in: query
+        description: Comma-separated route designators.
+        schema:
+          type: string
+      - name: vid
+        in: query
+        description: Comma-separated vehicle IDs.
+        schema:
+          type: string
+      - name: top
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/format'
+      responses:
+        '200':
+          description: Prediction list
+components:
+  parameters:
+    format:
+      name: format
+      in: query
+      description: Response format (xml or json). Defaults to XML.
+      schema:
+        type: string
+        enum:
+        - xml
+        - json
+    key:
+      name: key
+      in: query
+      required: true
+      description: CTA Bus Tracker API key.
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key

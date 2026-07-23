@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: CTA Bus Tracker Arrivals API
+  description: The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.
+  version: 2.0.0
+  contact:
+    name: CTA Developer Center
+    url: https://www.transitchicago.com/developers/
+  license:
+    name: CTA Developer License Agreement
+    url: https://www.transitchicago.com/developers/terms/
+servers:
+- url: http://www.ctabustracker.com/bustime/api/v2
+  description: CTA Bus Tracker v2 production
+security:
+- apiKey: []
+tags:
+- name: Arrivals
+  description: Train arrival prediction operations
+paths:
+  /ttarrivals.aspx:
+    get:
+      operationId: getArrivals
+      summary: Arrivals
+      description: Returns train arrival predictions for a station (mapid) or platform (stpid).
+      tags:
+      - Arrivals
+      parameters:
+      - name: key
+        in: query
+        required: true
+        description: CTA Train Tracker API key.
+        schema:
+          type: string
+      - name: mapid
+        in: query
+        description: Numeric station identifier.
+        schema:
+          type: string
+      - name: stpid
+        in: query
+        description: Numeric platform stop identifier.
+        schema:
+          type: string
+      - name: max
+        in: query
+        description: Maximum results to return.
+        schema:
+          type: integer
+      - name: rt
+        in: query
+        description: Train route code (e.g., Red, Blue, G, Brn, P, Pink, Org, Y).
+        schema:
+          type: string
+      - name: outputType
+        in: query
+        description: Response format. Defaults to XML.
+        schema:
+          type: string
+          enum:
+          - xml
+          - JSON
+      responses:
+        '200':
+          description: Arrival predictions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrivalsResponse'
+components:
+  schemas:
+    Arrival:
+      type: object
+      properties:
+        staId:
+          type: string
+        stpId:
+          type: string
+        staNm:
+          type: string
+        stpDe:
+          type: string
+        rn:
+          type: string
+        rt:
+          type: string
+        destSt:
+          type: string
+        destNm:
+          type: string
+        prdt:
+          type: string
+        arrT:
+          type: string
+        isApp:
+          type: string
+        isSch:
+          type: string
+        isDly:
+          type: string
+        lat:
+          type: string
+        lon:
+          type: string
+        heading:
+          type: string
+    ArrivalsResponse:
+      type: object
+      properties:
+        ctatt:
+          type: object
+          properties:
+            tmst:
+              type: string
+            errCd:
+              type: string
+            errNm:
+              type: string
+            eta:
+              type: array
+              items:
+                $ref: '#/components/schemas/Arrival'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key
