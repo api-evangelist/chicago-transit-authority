@@ -9,9 +9,22 @@ description: >-
   vehicle locations, the Customer Alerts API for service status and disruptions, and GTFS schedule data feeds for the
   entire CTA bus and rail network.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/chicago-transit-authority.png
 url: https://raw.githubusercontent.com/api-evangelist/chicago-transit-authority/refs/heads/main/apis.yml
 tags:
   - Bus
@@ -32,97 +45,247 @@ created: '2025-05-02'
 modified: '2026-05-19'
 specificationVersion: '0.20'
 apis:
-  - aid: chicago-transit-authority:train-tracker-api
-    name: CTA Train Tracker API
-    description: >-
-      The Train Tracker API provides real-time train arrival predictions and run/location information for all CTA L
-      train lines. Endpoints include arrival predictions by station or stop, follow-this-train run tracking, and a
-      locations service exposing the current latitude/longitude of in-service trains. Authentication requires a
-      developer API key issued through the CTA Developer Center.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.transitchicago.com/developers/traintracker/
-    baseURL: http://lapi.transitchicago.com/api/1.0
-    tags:
-      - L Train
-      - Real-Time
-      - Train Tracker
-      - Transit
-    properties:
-      - type: Documentation
-        url: https://www.transitchicago.com/developers/traintracker/
-      - type: APIDocs
-        url: https://www.transitchicago.com/developers/ttdocs/
-      - type: APIKeyApplication
-        url: https://www.transitchicago.com/developers/traintrackerapply/
-      - type: TermsOfService
-        url: https://www.transitchicago.com/developers/terms/
-      - type: OpenAPI
-        url: openapi/cta-train-tracker-openapi.yml
-      - type: Spectral
-        url: spectral/chicago-transit-authority-spectral.yml
-  - aid: chicago-transit-authority:bus-tracker-api
-    name: CTA Bus Tracker API
-    description: >-
-      The Bus Tracker API series provides real-time bus arrival predictions, vehicle locations, route patterns, route
-      lists, and stop directories for the CTA bus network. Endpoints support route, stop, and vehicle-based queries
-      returning JSON or XML. Authentication requires a developer API key issued through the CTA Developer Center.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.transitchicago.com/developers/bustracker/
-    baseURL: http://www.ctabustracker.com/bustime/api/v2
-    tags:
-      - Bus
-      - Bus Tracker
-      - Real-Time
-      - Transit
-    properties:
-      - type: Documentation
-        url: https://www.transitchicago.com/developers/bustracker/
-      - type: TermsOfService
-        url: https://www.transitchicago.com/developers/terms/
-      - type: OpenAPI
-        url: openapi/cta-bus-tracker-openapi.yml
-  - aid: chicago-transit-authority:customer-alerts-api
-    name: CTA Customer Alerts API
-    description: >-
-      The Customer Alerts API delivers real-time service status, planned outages, and disruption information for CTA bus
-      and rail services. It provides both a route-level status feed and per-route or per-station detail. Authentication
-      is not required for the public Customer Alerts feeds.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.transitchicago.com/developers/alerts/
-    baseURL: http://www.transitchicago.com/api/1.0
-    tags:
-      - Customer Alerts
-      - Real-Time
-      - Service Status
-      - Transit
-    properties:
-      - type: Documentation
-        url: https://www.transitchicago.com/developers/alerts/
-  - aid: chicago-transit-authority:gtfs-feed
-    name: CTA GTFS Schedule Feed
-    description: >-
-      CTA publishes a GTFS (General Transit Feed Specification) schedule feed covering the physical layout, stop
-      locations, and static schedules for the entire CTA bus and L train system. The feed is a downloadable ZIP archive
-      that conforms to the GTFS reference and is updated when CTA service changes.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.transitchicago.com/developers/gtfs/
-    baseURL: https://www.transitchicago.com/downloads/sch_data/google_transit.zip
-    tags:
-      - GTFS
-      - Schedule
-      - Static
-      - Transit
-    properties:
-      - type: Documentation
-        url: https://www.transitchicago.com/developers/gtfs/
-      - type: Feed
-        url: https://www.transitchicago.com/downloads/sch_data/google_transit.zip
-      - type: DataGov
-        url: https://catalog.data.gov/dataset/cta-system-information-developer-tool-gtfs-data
-      - type: Transitland
-        url: https://www.transit.land/feeds/f-dp3-cta
-      - type: ChicagoDataPortal
-        url: https://data.cityofchicago.org/Transportation/CTA-System-Information-Developer-Tool-GTFS-Data/sp6w-yusg
+- aid: chicago-transit-authority:customer-alerts-api
+  name: CTA Customer Alerts API
+  description: >-
+    The Customer Alerts API delivers real-time service status, planned outages, and disruption information
+    for CTA bus and rail services. It provides both a route-level status feed and per-route or per-station
+    detail. Authentication is not required for the public Customer Alerts feeds.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.transitchicago.com/developers/alerts/
+  baseURL: http://www.transitchicago.com/api/1.0
+  tags:
+  - Customer Alerts
+  - Real-Time
+  - Service Status
+  - Transit
+  properties:
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/alerts/
+- aid: chicago-transit-authority:gtfs-feed
+  name: CTA GTFS Schedule Feed
+  description: >-
+    CTA publishes a GTFS (General Transit Feed Specification) schedule feed covering the physical layout,
+    stop locations, and static schedules for the entire CTA bus and L train system. The feed is a downloadable
+    ZIP archive that conforms to the GTFS reference and is updated when CTA service changes.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.transitchicago.com/developers/gtfs/
+  baseURL: https://www.transitchicago.com/downloads/sch_data/google_transit.zip
+  tags:
+  - GTFS
+  - Schedule
+  - Static
+  - Transit
+  properties:
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/gtfs/
+  - type: Feed
+    url: https://www.transitchicago.com/downloads/sch_data/google_transit.zip
+  - type: DataGov
+    url: https://catalog.data.gov/dataset/cta-system-information-developer-tool-gtfs-data
+  - type: Transitland
+    url: https://www.transit.land/feeds/f-dp3-cta
+  - type: ChicagoDataPortal
+    url: >-
+      https://data.cityofchicago.org/Transportation/CTA-System-Information-Developer-Tool-GTFS-Data/sp6w-yusg
+- aid: chicago-transit-authority:chicago-transit-authority-arrivals-api
+  name: Chicago Transit Authority Arrivals API
+  description: Train arrival prediction operations
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Arrivals
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-arrivals-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-bulletins-api
+  name: Chicago Transit Authority Bulletins API
+  description: The Bulletins API from Chicago Transit Authority — 1 operation(s) for bulletins.
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Bulletins
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-bulletins-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-follow-api
+  name: Chicago Transit Authority Follow API
+  description: Follow an individual train run
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Follow
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-follow-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-locations-api
+  name: Chicago Transit Authority Locations API
+  description: Train geolocation operations
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-locations-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-predictions-api
+  name: Chicago Transit Authority Predictions API
+  description: The Predictions API from Chicago Transit Authority — 1 operation(s) for predictions.
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Predictions
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-predictions-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-routes-api
+  name: Chicago Transit Authority Routes API
+  description: The Routes API from Chicago Transit Authority — 3 operation(s) for routes.
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-routes-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-stops-api
+  name: Chicago Transit Authority Stops API
+  description: The Stops API from Chicago Transit Authority — 1 operation(s) for stops.
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Stops
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-stops-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-system-api
+  name: Chicago Transit Authority System API
+  description: The System API from Chicago Transit Authority — 1 operation(s) for system.
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-system-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
+- aid: chicago-transit-authority:chicago-transit-authority-vehicles-api
+  name: Chicago Transit Authority Vehicles API
+  description: The Vehicles API from Chicago Transit Authority — 1 operation(s) for vehicles.
+  humanURL: https://www.transitchicago.com/developers/traintracker/
+  baseURL: http://lapi.transitchicago.com/api/1.0
+  tags:
+  - Vehicles
+  properties:
+  - type: OpenAPI
+    url: openapi/chicago-transit-authority-vehicles-api-openapi.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/traintracker/
+  - type: APIDocs
+    url: https://www.transitchicago.com/developers/ttdocs/
+  - type: APIKeyApplication
+    url: https://www.transitchicago.com/developers/traintrackerapply/
+  - type: TermsOfService
+    url: https://www.transitchicago.com/developers/terms/
+  - type: Spectral
+    url: spectral/chicago-transit-authority-spectral.yml
+  - type: Documentation
+    url: https://www.transitchicago.com/developers/bustracker/
 common:
   - type: AgenticAccess
     url: agentic-access/chicago-transit-authority-agentic-access.yml
