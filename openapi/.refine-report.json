@@ -1,0 +1,30 @@
+{
+  "provider": "chicago-transit-authority",
+  "sources": [
+    "chicago-transit-authority-arrivals-api-openapi.yml",
+    "chicago-transit-authority-bulletins-api-openapi.yml",
+    "chicago-transit-authority-follow-api-openapi.yml",
+    "chicago-transit-authority-locations-api-openapi.yml",
+    "chicago-transit-authority-predictions-api-openapi.yml",
+    "chicago-transit-authority-routes-api-openapi.yml",
+    "chicago-transit-authority-stops-api-openapi.yml",
+    "chicago-transit-authority-system-api-openapi.yml",
+    "chicago-transit-authority-vehicles-api-openapi.yml"
+  ],
+  "outputs": [
+    "chicago-transit-authority-arrivals-api-openapi.yml",
+    "chicago-transit-authority-bulletins-api-openapi.yml",
+    "chicago-transit-authority-follow-api-openapi.yml",
+    "chicago-transit-authority-locations-api-openapi.yml",
+    "chicago-transit-authority-predictions-api-openapi.yml",
+    "chicago-transit-authority-routes-api-openapi.yml",
+    "chicago-transit-authority-stops-api-openapi.yml",
+    "chicago-transit-authority-system-api-openapi.yml",
+    "chicago-transit-authority-vehicles-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
