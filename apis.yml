@@ -43,7 +43,7 @@ tags:
   - Transportation
 created: '2025-05-02'
 modified: '2026-05-19'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
 - aid: chicago-transit-authority:customer-alerts-api
   name: CTA Customer Alerts API
