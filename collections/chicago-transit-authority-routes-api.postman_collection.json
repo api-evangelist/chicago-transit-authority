@@ -1,0 +1,333 @@
+{
+  "item": [
+    {
+      "id": "361ebfa1-5c03-4b79-8101-f57de3191105",
+      "name": "Routes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b4b1498-414b-4291-9321-fd23ec4794cd",
+          "name": "Get Routes",
+          "request": {
+            "name": "Get Routes",
+            "description": {
+              "content": "Returns the set of CTA bus routes available in Bus Tracker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "getroutes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) CTA Bus Tracker API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format (xml or json). Defaults to XML."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fdbd506-9b88-418f-8b40-54bcccaa1082",
+              "name": "Route list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "getroutes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bustime-response\": {\n    \"routes\": [\n      {\n        \"rt\": \"string\",\n        \"rtnm\": \"string\",\n        \"rtclr\": \"string\",\n        \"rtdd\": \"string\"\n      },\n      {\n        \"rt\": \"string\",\n        \"rtnm\": \"string\",\n        \"rtclr\": \"string\",\n        \"rtdd\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e417bdee-5e70-4aac-b9cb-a68c704c57c9",
+          "name": "Get Directions",
+          "request": {
+            "name": "Get Directions",
+            "description": {
+              "content": "Returns the set of valid directions for a given route.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "getdirections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) CTA Bus Tracker API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format (xml or json). Defaults to XML."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5985cecb-c47e-4db8-a7c5-ffff8fbf3c09",
+              "name": "Directions for route",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "getdirections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "692a03a4-a33e-46e5-8c88-15b8e8a149b4",
+          "name": "Get Patterns",
+          "request": {
+            "name": "Get Patterns",
+            "description": {
+              "content": "Returns route pattern geometry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "getpatterns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) CTA Bus Tracker API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format (xml or json). Defaults to XML."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "656ad6e4-b3f6-429f-b36f-aa94f04f37e8",
+              "name": "Pattern list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "getpatterns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://www.ctabustracker.com/bustime/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6e54cd75-1c9d-42e9-a70b-39cc6497f857",
+    "name": "CTA Bus Tracker Arrivals Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.\n\nContact Support:\n Name: CTA Developer Center",
+      "type": "text/plain"
+    }
+  }
+}

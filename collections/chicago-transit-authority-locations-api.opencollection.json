@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CTA Bus Tracker Arrivals Locations API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://www.ctabustracker.com/bustime/api/v2/ttpositions.aspx",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rt",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of route codes."
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the current latitude/longitude for in-service trains."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

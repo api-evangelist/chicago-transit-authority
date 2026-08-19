@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "c1eb7581-51a9-4038-b030-358ff5c293ef",
+      "name": "Follow",
+      "description": {
+        "content": "Follow an individual train run",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a2ec82d-8b3b-4b66-9cd5-d7d59d3e65c4",
+          "name": "Follow This Train",
+          "request": {
+            "name": "Follow This Train",
+            "description": {
+              "content": "Returns predictions for an individual train run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ttfollow.aspx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "runnumber",
+                  "value": "<string>",
+                  "description": "(Required) Train run number to follow."
+                },
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a0c5b12-ca52-44cc-b370-3ccf2c2a5027",
+              "name": "Per-run prediction list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ttfollow.aspx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "runnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outputType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ctatt\": {\n    \"tmst\": \"string\",\n    \"errCd\": \"string\",\n    \"errNm\": \"string\",\n    \"eta\": [\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      },\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://www.ctabustracker.com/bustime/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "09d35311-769e-45b0-9913-4125f3768a36",
+    "name": "CTA Bus Tracker Arrivals Follow API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.\n\nContact Support:\n Name: CTA Developer Center",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CTA Bus Tracker Arrivals Bulletins API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulletins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Service Bulletins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://www.ctabustracker.com/bustime/api/v2/getservicebulletins",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "CTA Bus Tracker API key."
+              },
+              {
+                "name": "rt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stpid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (xml or json). Defaults to XML."
+              }
+            ]
+          },
+          "docs": "Returns active service bulletins for routes or stops."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

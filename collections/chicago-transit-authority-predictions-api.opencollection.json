@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CTA Bus Tracker Arrivals Predictions API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Predictions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Predictions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://www.ctabustracker.com/bustime/api/v2/getpredictions",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "CTA Bus Tracker API key."
+              },
+              {
+                "name": "stpid",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated stop IDs."
+              },
+              {
+                "name": "rt",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated route designators."
+              },
+              {
+                "name": "vid",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated vehicle IDs."
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (xml or json). Defaults to XML."
+              }
+            ]
+          },
+          "docs": "Returns arrival or departure predictions for stops or vehicles."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

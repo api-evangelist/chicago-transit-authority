@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CTA Bus Tracker Arrivals Vehicles API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vehicles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Vehicles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://www.ctabustracker.com/bustime/api/v2/getvehicles",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "CTA Bus Tracker API key."
+              },
+              {
+                "name": "vid",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated vehicle IDs."
+              },
+              {
+                "name": "rt",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated route designators."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (xml or json). Defaults to XML."
+              }
+            ]
+          },
+          "docs": "Returns vehicle positions for routes or specific vehicles."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

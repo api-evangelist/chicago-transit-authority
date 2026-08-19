@@ -1,0 +1,151 @@
+{
+  "item": [
+    {
+      "id": "91e55600-c5b4-4431-86d4-71a3eb9b68bb",
+      "name": "Bulletins",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0af9de4b-2582-42bd-bd52-d5e9b1e565f1",
+          "name": "Get Service Bulletins",
+          "request": {
+            "name": "Get Service Bulletins",
+            "description": {
+              "content": "Returns active service bulletins for routes or stops.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "getservicebulletins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) CTA Bus Tracker API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stpid",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format (xml or json). Defaults to XML."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05ab2421-cecf-4f1b-b3dc-e630ed841fff",
+              "name": "Bulletin list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "getservicebulletins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stpid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://www.ctabustracker.com/bustime/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a21f5b2a-f02d-49ec-8fac-5dc35d4e1537",
+    "name": "CTA Bus Tracker Arrivals Bulletins API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.\n\nContact Support:\n Name: CTA Developer Center",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "2f1e0aa8-87b7-4fe2-8719-e038eaeb45c9",
+      "name": "Predictions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "baab3e81-79ae-4d22-a926-d531eeb7f3c9",
+          "name": "Get Predictions",
+          "request": {
+            "name": "Get Predictions",
+            "description": {
+              "content": "Returns arrival or departure predictions for stops or vehicles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "getpredictions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) CTA Bus Tracker API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "stpid",
+                  "value": "<string>",
+                  "description": "Comma-separated stop IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>",
+                  "description": "Comma-separated route designators."
+                },
+                {
+                  "disabled": false,
+                  "key": "vid",
+                  "value": "<string>",
+                  "description": "Comma-separated vehicle IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format (xml or json). Defaults to XML."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cef42d9-8c3f-4fd9-8899-108bc0b8ce5c",
+              "name": "Prediction list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "getpredictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stpid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://www.ctabustracker.com/bustime/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c17aa25-00c4-460f-825f-2a27ced6e886",
+    "name": "CTA Bus Tracker Arrivals Predictions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.\n\nContact Support:\n Name: CTA Developer Center",
+      "type": "text/plain"
+    }
+  }
+}

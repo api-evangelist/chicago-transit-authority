@@ -1,0 +1,185 @@
+{
+  "item": [
+    {
+      "id": "b083fcb4-9d30-4f8b-9466-c97c53248ec4",
+      "name": "Arrivals",
+      "description": {
+        "content": "Train arrival prediction operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "815d3668-e580-41eb-bbc8-197eb26eaca3",
+          "name": "Arrivals",
+          "request": {
+            "name": "Arrivals",
+            "description": {
+              "content": "Returns train arrival predictions for a station (mapid) or platform (stpid).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ttarrivals.aspx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) CTA Train Tracker API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "mapid",
+                  "value": "<string>",
+                  "description": "Numeric station identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "stpid",
+                  "value": "<string>",
+                  "description": "Numeric platform stop identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>",
+                  "description": "Train route code (e.g., Red, Blue, G, Brn, P, Pink, Org, Y)."
+                },
+                {
+                  "disabled": false,
+                  "key": "outputType",
+                  "value": "<string>",
+                  "description": "Response format. Defaults to XML."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95c839db-3f69-4bc0-aee3-27ab863edc4b",
+              "name": "Arrival predictions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ttarrivals.aspx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mapid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stpid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outputType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ctatt\": {\n    \"tmst\": \"string\",\n    \"errCd\": \"string\",\n    \"errNm\": \"string\",\n    \"eta\": [\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      },\n      {\n        \"staId\": \"string\",\n        \"stpId\": \"string\",\n        \"staNm\": \"string\",\n        \"stpDe\": \"string\",\n        \"rn\": \"string\",\n        \"rt\": \"string\",\n        \"destSt\": \"string\",\n        \"destNm\": \"string\",\n        \"prdt\": \"string\",\n        \"arrT\": \"string\",\n        \"isApp\": \"string\",\n        \"isSch\": \"string\",\n        \"isDly\": \"string\",\n        \"lat\": \"string\",\n        \"lon\": \"string\",\n        \"heading\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://www.ctabustracker.com/bustime/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "01ac5299-1a6b-41dc-a213-1f781d5f2904",
+    "name": "CTA Bus Tracker Arrivals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.\n\nContact Support:\n Name: CTA Developer Center",
+      "type": "text/plain"
+    }
+  }
+}

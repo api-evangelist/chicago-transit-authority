@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CTA Bus Tracker Arrivals Follow API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Follow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Follow This Train",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://www.ctabustracker.com/bustime/api/v2/ttfollow.aspx",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "runnumber",
+                "value": "",
+                "type": "query",
+                "description": "Train run number to follow."
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns predictions for an individual train run."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
