@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: CTA Bus Tracker Arrivals System API
+  title: CTA Bus Tracker System API
   description: The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.
   version: 2.0.0
   contact:
@@ -32,6 +32,13 @@ paths:
           description: System time
 components:
   parameters:
+    key:
+      name: key
+      in: query
+      required: true
+      description: CTA Bus Tracker API key.
+      schema:
+        type: string
     format:
       name: format
       in: query
@@ -41,13 +48,6 @@ components:
         enum:
         - xml
         - json
-    key:
-      name: key
-      in: query
-      required: true
-      description: CTA Bus Tracker API key.
-      schema:
-        type: string
   securitySchemes:
     apiKey:
       type: apiKey

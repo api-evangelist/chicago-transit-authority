@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: CTA Bus Tracker Arrivals Locations API
-  description: The Chicago Transit Authority Bus Tracker API provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Access requires an API key issued by the CTA Developer Center.
-  version: 2.0.0
+  title: CTA Train Tracker Locations API
+  description: The Chicago Transit Authority Train Tracker API provides real-time train arrival predictions and run/location information for the CTA L train system. Access requires an API key issued by the CTA Developer Center.
+  version: 1.0.0
   contact:
     name: CTA Developer Center
     url: https://www.transitchicago.com/developers/
@@ -10,8 +10,8 @@ info:
     name: CTA Developer License Agreement
     url: https://www.transitchicago.com/developers/terms/
 servers:
-- url: http://www.ctabustracker.com/bustime/api/v2
-  description: CTA Bus Tracker v2 production
+- url: http://lapi.transitchicago.com/api/1.0
+  description: CTA Train Tracker production
 security:
 - apiKey: []
 tags:
@@ -50,29 +50,6 @@ paths:
                 $ref: '#/components/schemas/PositionsResponse'
 components:
   schemas:
-    PositionsResponse:
-      type: object
-      properties:
-        ctatt:
-          type: object
-          properties:
-            tmst:
-              type: string
-            errCd:
-              type: string
-            errNm:
-              type: string
-            route:
-              type: array
-              items:
-                type: object
-                properties:
-                  '@name':
-                    type: string
-                  train:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Position'
     Position:
       type: object
       properties:
@@ -102,6 +79,29 @@ components:
           type: string
         heading:
           type: string
+    PositionsResponse:
+      type: object
+      properties:
+        ctatt:
+          type: object
+          properties:
+            tmst:
+              type: string
+            errCd:
+              type: string
+            errNm:
+              type: string
+            route:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@name':
+                    type: string
+                  train:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Position'
   securitySchemes:
     apiKey:
       type: apiKey

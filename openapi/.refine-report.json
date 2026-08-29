@@ -1,30 +1,37 @@
 {
   "provider": "chicago-transit-authority",
   "sources": [
-    "chicago-transit-authority-arrivals-api-openapi.yml",
-    "chicago-transit-authority-bulletins-api-openapi.yml",
-    "chicago-transit-authority-follow-api-openapi.yml",
-    "chicago-transit-authority-locations-api-openapi.yml",
-    "chicago-transit-authority-predictions-api-openapi.yml",
-    "chicago-transit-authority-routes-api-openapi.yml",
-    "chicago-transit-authority-stops-api-openapi.yml",
-    "chicago-transit-authority-system-api-openapi.yml",
-    "chicago-transit-authority-vehicles-api-openapi.yml"
+    "_original/cta-bus-tracker-openapi.yml",
+    "_original/cta-train-tracker-openapi.yml"
   ],
   "outputs": [
-    "chicago-transit-authority-arrivals-api-openapi.yml",
     "chicago-transit-authority-bulletins-api-openapi.yml",
-    "chicago-transit-authority-follow-api-openapi.yml",
-    "chicago-transit-authority-locations-api-openapi.yml",
     "chicago-transit-authority-predictions-api-openapi.yml",
     "chicago-transit-authority-routes-api-openapi.yml",
     "chicago-transit-authority-stops-api-openapi.yml",
     "chicago-transit-authority-system-api-openapi.yml",
-    "chicago-transit-authority-vehicles-api-openapi.yml"
+    "chicago-transit-authority-vehicles-api-openapi.yml",
+    "chicago-transit-authority-arrivals-api-openapi.yml",
+    "chicago-transit-authority-follow-api-openapi.yml",
+    "chicago-transit-authority-locations-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cta-bus-tracker-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cta-train-tracker-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "chicago-transit-authority-arrivals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-bulletins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-follow-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-predictions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-routes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-stops-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-system-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chicago-transit-authority-vehicles-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
