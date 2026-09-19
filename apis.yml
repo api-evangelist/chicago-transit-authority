@@ -50,6 +50,21 @@ tags:
   - Open Data
   - Public Transit
   - Real-Time
+  - Trains
+  - Train Tracker
+  - Transit
+  - Transportation
+tags_raw:
+  - Bus
+  - Bus Tracker
+  - Chicago
+  - CTA
+  - Customer Alerts
+  - GTFS
+  - L Train
+  - Open Data
+  - Public Transit
+  - Real-Time
   - Train
   - Train Tracker
   - Transit
@@ -173,6 +188,8 @@ apis:
   humanURL: https://www.transitchicago.com/developers/traintracker/
   baseURL: http://lapi.transitchicago.com/api/1.0
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
