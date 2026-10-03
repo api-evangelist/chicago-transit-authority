@@ -40,6 +40,13 @@ paths:
           description: Bulletin list
 components:
   parameters:
+    key:
+      name: key
+      in: query
+      required: true
+      description: CTA Bus Tracker API key.
+      schema:
+        type: string
     format:
       name: format
       in: query
@@ -49,13 +56,6 @@ components:
         enum:
         - xml
         - json
-    key:
-      name: key
-      in: query
-      required: true
-      description: CTA Bus Tracker API key.
-      schema:
-        type: string
   securitySchemes:
     apiKey:
       type: apiKey

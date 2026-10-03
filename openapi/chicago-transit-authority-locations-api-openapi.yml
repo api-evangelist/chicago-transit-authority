@@ -50,6 +50,29 @@ paths:
                 $ref: '#/components/schemas/PositionsResponse'
 components:
   schemas:
+    PositionsResponse:
+      type: object
+      properties:
+        ctatt:
+          type: object
+          properties:
+            tmst:
+              type: string
+            errCd:
+              type: string
+            errNm:
+              type: string
+            route:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@name':
+                    type: string
+                  train:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Position'
     Position:
       type: object
       properties:
@@ -79,29 +102,6 @@ components:
           type: string
         heading:
           type: string
-    PositionsResponse:
-      type: object
-      properties:
-        ctatt:
-          type: object
-          properties:
-            tmst:
-              type: string
-            errCd:
-              type: string
-            errNm:
-              type: string
-            route:
-              type: array
-              items:
-                type: object
-                properties:
-                  '@name':
-                    type: string
-                  train:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Position'
   securitySchemes:
     apiKey:
       type: apiKey

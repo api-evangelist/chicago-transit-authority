@@ -71,7 +71,34 @@ paths:
         '200':
           description: Pattern list
 components:
+  parameters:
+    key:
+      name: key
+      in: query
+      required: true
+      description: CTA Bus Tracker API key.
+      schema:
+        type: string
+    format:
+      name: format
+      in: query
+      description: Response format (xml or json). Defaults to XML.
+      schema:
+        type: string
+        enum:
+        - xml
+        - json
   schemas:
+    RoutesResponse:
+      type: object
+      properties:
+        bustime-response:
+          type: object
+          properties:
+            routes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Route'
     Route:
       type: object
       properties:
@@ -83,33 +110,6 @@ components:
           type: string
         rtdd:
           type: string
-    RoutesResponse:
-      type: object
-      properties:
-        bustime-response:
-          type: object
-          properties:
-            routes:
-              type: array
-              items:
-                $ref: '#/components/schemas/Route'
-  parameters:
-    format:
-      name: format
-      in: query
-      description: Response format (xml or json). Defaults to XML.
-      schema:
-        type: string
-        enum:
-        - xml
-        - json
-    key:
-      name: key
-      in: query
-      required: true
-      description: CTA Bus Tracker API key.
-      schema:
-        type: string
   securitySchemes:
     apiKey:
       type: apiKey
