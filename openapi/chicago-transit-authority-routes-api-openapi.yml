@@ -71,6 +71,28 @@ paths:
         '200':
           description: Pattern list
 components:
+  schemas:
+    Route:
+      type: object
+      properties:
+        rt:
+          type: string
+        rtnm:
+          type: string
+        rtclr:
+          type: string
+        rtdd:
+          type: string
+    RoutesResponse:
+      type: object
+      properties:
+        bustime-response:
+          type: object
+          properties:
+            routes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Route'
   parameters:
     key:
       name: key
@@ -88,28 +110,6 @@ components:
         enum:
         - xml
         - json
-  schemas:
-    RoutesResponse:
-      type: object
-      properties:
-        bustime-response:
-          type: object
-          properties:
-            routes:
-              type: array
-              items:
-                $ref: '#/components/schemas/Route'
-    Route:
-      type: object
-      properties:
-        rt:
-          type: string
-        rtnm:
-          type: string
-        rtclr:
-          type: string
-        rtdd:
-          type: string
   securitySchemes:
     apiKey:
       type: apiKey

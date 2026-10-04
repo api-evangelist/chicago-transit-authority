@@ -50,22 +50,6 @@ paths:
                 $ref: '#/components/schemas/ArrivalsResponse'
 components:
   schemas:
-    ArrivalsResponse:
-      type: object
-      properties:
-        ctatt:
-          type: object
-          properties:
-            tmst:
-              type: string
-            errCd:
-              type: string
-            errNm:
-              type: string
-            eta:
-              type: array
-              items:
-                $ref: '#/components/schemas/Arrival'
     Arrival:
       type: object
       properties:
@@ -101,6 +85,22 @@ components:
           type: string
         heading:
           type: string
+    ArrivalsResponse:
+      type: object
+      properties:
+        ctatt:
+          type: object
+          properties:
+            tmst:
+              type: string
+            errCd:
+              type: string
+            errNm:
+              type: string
+            eta:
+              type: array
+              items:
+                $ref: '#/components/schemas/Arrival'
   securitySchemes:
     apiKey:
       type: apiKey
