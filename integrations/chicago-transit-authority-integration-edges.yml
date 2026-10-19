@@ -1,0 +1,92 @@
+edges:
+- partner_name: GTFS (MobilityData Mobility Database)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://mobilitydatabase.org/feeds/mdb-389
+  category: GTFS transit feed
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: Mobility Database feeds export (files.mobilitydatabase.org/feeds_v2.csv, MobilityData)
+    standard: GTFS
+    spec_file: null
+    role: gtfs-feed-publisher
+    registered_name: Chicago Transit Authority (CTA)
+    register_id: mdb-389
+    matched_domain: transitchicago.com
+    matched_by: domain+name-among-holders
+    domain_source: feed download URL host
+    data_types: &id001
+    - gtfs
+    feed_ids_sample:
+    - mdb-389
+    official: true
+    lapsed: false
+    signal_note: 'participation only: a feed published on the provider''s own domain; feed counts, statuses and
+      locations are context, never counted. lapsed = every listed feed deprecated / inactive'
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+- partner_name: GTFS (MobilityData Mobility Database)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://mobilitydatabase.org/feeds/mdb-389
+  category: GTFS transit feed
+  channel: standard-directory
+  relationship: compatible
+  shape: gtfs
+  evidence_kind: standard-register
+  degree: published
+  report_only: true
+  note: publishes a GTFS feed on its own domain, listed in the Mobility Database (no anchor repo)
+  contract_reference:
+    register: Mobility Database feeds export (files.mobilitydatabase.org/feeds_v2.csv, MobilityData)
+    spec_file: null
+    standard: GTFS
+    role: gtfs-feed-publisher
+    registered_name: Chicago Transit Authority (CTA)
+    matched_domain: transitchicago.com
+    data_types: *id001
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+- partner_name: Mobility Alliance (MaaS Alliance)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://maas-alliance.eu/
+  category: MaaS industry association member
+  contract_reference:
+    register: Mobility Alliance (formerly MaaS Alliance) member wall (maas-alliance.eu)
+    standard: Mobility-as-a-Service (MaaS Alliance)
+    spec_file: null
+    role: maas-alliance-member
+    registered_name: Chicago Transit Authority
+    website: https://www.transitchicago.com/
+    matched_domain: transitchicago.com
+    matched_by: domain+name-among-holders
+    domain_source: member card website link
+    signal_note: 'participation only: industry-association membership'
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+generated: '2026-10-18'
+method: searched
+source:
+- https://files.mobilitydatabase.org/feeds_v2.csv
+- https://github.com/MobilityData/gbfs/blob/master/systems.csv
+- https://maas-alliance.eu/
+checked:
+- https://files.mobilitydatabase.org/feeds_v2.csv
+- https://github.com/MobilityData/gbfs/blob/master/systems.csv
+- https://maas-alliance.eu/
