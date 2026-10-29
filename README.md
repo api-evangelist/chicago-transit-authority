@@ -1,4 +1,4 @@
-# Chicago Transit Authority (chicago-transit-authority)
+# Chicago Transit Authority
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,152 +66,141 @@
 
 The Chicago Transit Authority (CTA) is the public transit operator for the City of Chicago and 35 surrounding suburbs, operating the second largest public transit system in the United States with bus and rapid-transit (L) train services. The CTA Developer Center publishes open transit data feeds and APIs for developers building rider-facing applications, including the Train Tracker API for real-time L-train arrivals, the Bus Tracker API for real-time bus arrivals and vehicle locations, the Customer Alerts API for service status and disruptions, and GTFS schedule data feeds for the entire CTA bus and rail network.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/chicago-transit-authority/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/chicago-transit-authority/refs/heads/main/apis.yml)
+**Areas:** Bus · Bus Tracker · Chicago · CTA · Customer Alerts · GTFS · L Train · Open Data · Public Transit · Real-Time · Trains · Train Tracker
 
-## Scope
+## Chicago Transit Authority on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Chicago Transit Authority is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/chicago-transit-authority/](https://apis.io/providers/chicago-transit-authority/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (11)
 
-- Bus
-- Bus Tracker
-- Chicago
-- CTA
-- Customer Alerts
-- GTFS
-- L Train
-- Open Data
-- Public Transit
-- Real-Time
-- Train
-- Train Tracker
-- Transit
-- Transportation
+- [CTA Customer Alerts API](https://apis.io/apis/chicago-transit-authority/customer-alerts-api/) — The Customer Alerts API delivers real-time service status, planned outages, and disruption information for CTA bus and rail services. It provides both a…
+- [CTA GTFS Schedule Feed](https://apis.io/apis/chicago-transit-authority/gtfs-feed/) — CTA publishes a GTFS (General Transit Feed Specification) schedule feed covering the physical layout, stop locations, and static schedules for the entire…
+- [Chicago Transit Authority Arrivals API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-arrivals-api/) — Train arrival prediction operations
+- [Chicago Transit Authority Bulletins API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-bulletins-api/) — The Bulletins API from Chicago Transit Authority — 1 operation(s) for bulletins.
+- [Chicago Transit Authority Follow API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-follow-api/) — Follow an individual train run
+- [Chicago Transit Authority Locations API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-locations-api/) — Train geolocation operations
+- [Chicago Transit Authority Predictions API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-predictions-api/) — The Predictions API from Chicago Transit Authority — 1 operation(s) for predictions.
+- [Chicago Transit Authority Routes API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-routes-api/) — The Routes API from Chicago Transit Authority — 3 operation(s) for routes.
+- [Chicago Transit Authority Stops API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-stops-api/) — The Stops API from Chicago Transit Authority — 1 operation(s) for stops.
+- [Chicago Transit Authority System API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-system-api/) — The System API from Chicago Transit Authority — 1 operation(s) for system.
+- [Chicago Transit Authority Vehicles API](https://apis.io/apis/chicago-transit-authority/chicago-transit-authority-vehicles-api/) — The Vehicles API from Chicago Transit Authority — 1 operation(s) for vehicles.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-05-02
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### CTA Train Tracker API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Train Tracker API provides real-time train arrival predictions and run/location information for all CTA L train lines. Endpoints include arrival predictions by station or stop, follow-this-train run tracking, and a locations service exposing the current latitude/longitude of in-service trains. Authentication requires a developer API key issued through the CTA Developer Center.
+- [Chicago Transit Authority Agentic Access](https://apis.io/agentic-access/chicago-transit-authority/chicago-transit-authority-agentic-access/)
 
-- **Human URL:** [https://www.transitchicago.com/developers/traintracker/](https://www.transitchicago.com/developers/traintracker/)
-- **Base URL:** `http://lapi.transitchicago.com/api/1.0`
+#### JSON-LD (1)
 
-#### Tags
+Linked-data contexts for the provider's vocabulary.
 
-- L Train
-- Real-Time
-- Train Tracker
-- Transit
+- [Chicago Transit Authority Context](https://apis.io/jsonld/chicago-transit-authority/chicago-transit-authority-context/)
 
-#### Properties
+#### Collections (11)
 
-- [Documentation](https://www.transitchicago.com/developers/traintracker/)
-- [A P I Docs](https://www.transitchicago.com/developers/ttdocs/)
-- [A P I Key Application](https://www.transitchicago.com/developers/traintrackerapply/)
-- [Terms Of Use](https://www.transitchicago.com/developers/terms/)
-- [OpenAPI](openapi/cta-train-tracker-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cta-train-tracker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cta-train-tracker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Spectral Rules](spectral/chicago-transit-authority-spectral.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
+Postman and Open Collection request collections.
 
-### CTA Bus Tracker API
+- [CTA Bus Tracker Arrivals API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-arrivals-api/)
+- [CTA Bus Tracker Arrivals Bulletins API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-bulletins-api/)
+- [CTA Bus Tracker Arrivals Follow API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-follow-api/)
+- [CTA Bus Tracker Arrivals Locations API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-locations-api/)
+- [CTA Bus Tracker Arrivals Predictions API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-predictions-api/)
+- [CTA Bus Tracker Arrivals Routes API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-routes-api/)
+- [CTA Bus Tracker Arrivals Stops API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-stops-api/)
+- [CTA Bus Tracker Arrivals System API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-system-api/)
+- [CTA Bus Tracker Arrivals Vehicles API](https://apis.io/collections/chicago-transit-authority/open-chicago-transit-authority-vehicles-api/)
+- [CTA Bus Tracker API](https://apis.io/collections/chicago-transit-authority/open-cta-bus-tracker/)
+- [CTA Train Tracker API](https://apis.io/collections/chicago-transit-authority/open-cta-train-tracker/)
 
-The Bus Tracker API series provides real-time bus arrival predictions, vehicle locations, route patterns, route lists, and stop directories for the CTA bus network. Endpoints support route, stop, and vehicle-based queries returning JSON or XML. Authentication requires a developer API key issued through the CTA Developer Center.
+#### Security (2)
 
-- **Human URL:** [https://www.transitchicago.com/developers/bustracker/](https://www.transitchicago.com/developers/bustracker/)
-- **Base URL:** `http://www.ctabustracker.com/bustime/api/v2`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Chicago Transit Authority Authentication](https://apis.io/security/chicago-transit-authority/chicago-transit-authority-authentication/)
+- [Chicago Transit Authority Domain Security](https://apis.io/security/chicago-transit-authority/chicago-transit-authority-domain-security/)
 
-- Bus
-- Bus Tracker
-- Real-Time
-- Transit
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://www.transitchicago.com/developers/bustracker/)
-- [Terms Of Use](https://www.transitchicago.com/developers/terms/)
-- [OpenAPI](openapi/cta-bus-tracker-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cta-bus-tracker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cta-bus-tracker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Chicago Transit Authority Plans Pricing](https://apis.io/plans/chicago-transit-authority/chicago-transit-authority-plans-pricing/)
 
-### CTA Customer Alerts API
+#### Rate limits (1)
 
-The Customer Alerts API delivers real-time service status, planned outages, and disruption information for CTA bus and rail services. It provides both a route-level status feed and per-route or per-station detail. Authentication is not required for the public Customer Alerts feeds.
+Published request limits.
 
-- **Human URL:** [https://www.transitchicago.com/developers/alerts/](https://www.transitchicago.com/developers/alerts/)
-- **Base URL:** `http://www.transitchicago.com/api/1.0`
+- [Chicago Transit Authority Rate Limits](https://apis.io/rate-limits/chicago-transit-authority/chicago-transit-authority-rate-limits/)
 
-#### Tags
+#### FinOps (1)
 
-- Customer Alerts
-- Real-Time
-- Service Status
-- Transit
+What the API costs to run, by operation.
 
-#### Properties
+- [Chicago Transit Authority Finops](https://apis.io/finops/chicago-transit-authority/chicago-transit-authority-finops/)
 
-- [Documentation](https://www.transitchicago.com/developers/alerts/)
-- [Postman Collection](collections/cta-bus-tracker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cta-bus-tracker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/cta-train-tracker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cta-train-tracker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+## Where to find this API
 
-### CTA GTFS Schedule Feed
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-CTA publishes a GTFS (General Transit Feed Specification) schedule feed covering the physical layout, stop locations, and static schedules for the entire CTA bus and L train system. The feed is a downloadable ZIP archive that conforms to the GTFS reference and is updated when CTA service changes.
-
-- **Human URL:** [https://www.transitchicago.com/developers/gtfs/](https://www.transitchicago.com/developers/gtfs/)
-- **Base URL:** `https://www.transitchicago.com/downloads/sch_data/google_transit.zip`
-
-#### Tags
-
-- GTFS
-- Schedule
-- Static
-- Transit
-
-#### Properties
-
-- [Documentation](https://www.transitchicago.com/developers/gtfs/)
-- [Feed](https://www.transitchicago.com/downloads/sch_data/google_transit.zip)
-- [Data Gov](https://catalog.data.gov/dataset/cta-system-information-developer-tool-gtfs-data)
-- [Transitland](https://www.transit.land/feeds/f-dp3-cta)
-- [Chicago Data Portal](https://data.cityofchicago.org/Transportation/CTA-System-Information-Developer-Tool-GTFS-Data/sp6w-yusg)
-- [Postman Collection](collections/cta-bus-tracker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cta-bus-tracker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/cta-train-tracker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cta-train-tracker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/chicago-transit-authority)
 - [Website](https://www.transitchicago.com/)
-- [Portal](https://www.transitchicago.com/developers/)
-- [Terms Of Use](https://www.transitchicago.com/developers/terms/)
-- [Privacy Policy](https://www.transitchicago.com/privacy/)
-- [A P I Key Application](https://www.transitchicago.com/developers/traintrackerapply/)
-- [Chicago Data Portal](https://data.cityofchicago.org)
-- [System Map](https://www.transitchicago.com/maps/)
-- [Newsroom](https://www.transitchicago.com/news/)
-- [Contact Us](https://www.transitchicago.com/contactus/)
-- [JSON-LD](json-ld/chicago-transit-authority-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Rules](spectral/chicago-transit-authority-spectral.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Standards](undefined)
+- [Blog](https://www.transitchicago.com/updates/)
+- [Terms of service](https://www.transitchicago.com/developers/terms/)
+- [Privacy policy](https://www.transitchicago.com/privacy/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 34.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 67.0 |
+| Contract quality | 50.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 28.9 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/chicago-transit-authority/](https://apis.io/providers/chicago-transit-authority/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Chicago Transit Authority: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/chicago-transit-authority/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
